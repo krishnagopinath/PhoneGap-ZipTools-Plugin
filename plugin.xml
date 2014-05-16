@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.kcg.ziptools" version="0.0.1">
+    <name>Zip Tools</name>
+    <description>Contains a group of tools which can perform ops on Zip tools</description>
+    <license>MIT</license>
+    <keywords>cordova,phonegap,zip,extract,unzip</keywords>
+    
+	<dependency id="org.apache.cordova.file" version="1.0.1" />	
+		
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/ziptools.js" name="zipTools">
+        <clobbers target="zipTools" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ZipTools" >
+                <param name="android-package" value="com.kcg.ziptools.ZipTools"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/ZipTools.java" target-dir="src/com/kcg/ziptools" />
+    </platform>
+</plugin>
